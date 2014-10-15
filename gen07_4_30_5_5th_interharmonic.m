@@ -7,6 +7,7 @@ IHARM_NUMBER=6; % 1st interharmonic is below 50 hz
 fs=12800;
 f0=50.0;
 duration=60;
+
 U_c=230;
 I_c=5;
 FL=1.0; % flicker level
@@ -101,7 +102,7 @@ IHARM_MATRIX=zeros(8,GEN.MAX_IHARM_NUMBER);
 IHARM_MATRIX(1,IHARM_NUMBER)=k/100;
 IHARM_MATRIX(2,IHARM_NUMBER)=k/100;
 IHARM_MATRIX(3,IHARM_NUMBER)=k/100;
-%GEN=GEN.add_interharmonics(IHARM_MATRIX);
+GEN=GEN.add_interharmonics(IHARM_MATRIX);
 
 GEN=GEN.savefile(['signal\' num2str(k,'%2.2f') ' ' num2str((IHARM_NUMBER-0.5),'%2.1f') 'iharm\test_state_3.txt']);
 clear GEN;
