@@ -1,6 +1,5 @@
 % Testing according to 4-30
 % 5 points FREQUENCY
-% 22.08.2014 11:16
 clear all;clc;
 F=[42.50 46.25 50.00 53.25 57.50];
 fs=12800;
@@ -98,16 +97,3 @@ GEN=GEN.add_interharmonics(IHARM_MATRIX);
 GEN=GEN.savefile(['signal\' num2str(k,'%2.2f') 'Hz\test_state_3.txt']);
 clear GEN;
 end;
-
-%-------------------------------
-%GEN=GEN.draw;
-%  tic
- 
-%  t=toc
-%figure; 
-% plot(sqrt(2)*abs(fft(GEN.UA)/length(GEN.UA)))
-
-% disp('Loading');
-% [A,B]=mex_swallow_csv('signal\signal.txt');
-% clear B;
-

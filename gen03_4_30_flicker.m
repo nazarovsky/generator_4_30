@@ -23,6 +23,7 @@ VAL_MATRIX=[     Un      Un       Un      0  ;
                  0       0        0      0 ];
 GEN=generator(fs,fn,duration,VAL_MATRIX);
 GEN=GEN.generate;
+% add flicker Pst=PST±0.1 at 39 cpm  [ cpm=39 deltaU/U=Pst*0.894 ]
 GEN=GEN.add_flicker([39 39 39 0 0 0 0 0],k*[0.894 0.894 0.894 0 0 0 0 0], 1);
 GEN=GEN.savefile(['signal\' num2str(k,'%2.2f') ' Pst\test_state_1.txt']);
 clear GEN;
@@ -40,7 +41,7 @@ VAL_MATRIX=[  0.73*Un   0.80*Un   0.87*Un 0  ;
                  0       0        0       0 ];
 GEN=generator(fs,fn,duration,VAL_MATRIX);
 GEN=GEN.generate;
-% add flicker Pst=1±0.1 at 39 cpm  [ cpm=39 deltaU/U=0.894 ]
+% add flicker Pst=PST±0.1 at 39 cpm  [ cpm=39 deltaU/U=Pst*0.894 ]
 GEN=GEN.add_flicker([39 39 39 0 0 0 0 0],k*[0.894 0.894 0.894 0 0 0 0 0], 1);
 % add harmonics   0.1 x 3rd at 0° | 0.05 x 5th at 0° | 0.05 x 29th at 0°
 HARM_MATRIX=zeros(8,GEN.MAX_HARM_NUMBER);
@@ -76,7 +77,7 @@ VAL_MATRIX=[  1.52*Un   1.40*Un   1.28*Un 0  ;
                  0       0        0       0 ];
 GEN=generator(fs,fn,duration,VAL_MATRIX);
 GEN=GEN.generate;
-% add flicker Pst=1±0.1 at 39 cpm  [ cpm=39 deltaU/U=0.894 ]
+% add flicker Pst=PST±0.1 at 39 cpm  [ cpm=39 deltaU/U=Pst*0.894 ]
 GEN=GEN.add_flicker([39 39 39 0 0 0 0 0],k*[0.894 0.894 0.894 0 0 0 0 0], 1);
 % add harmonics   0.1 x 7rd at 180° | 0.05 x 13th at 0° | 0.05 x 25th at 0°
 HARM_MATRIX=zeros(8,GEN.MAX_HARM_NUMBER);
@@ -100,16 +101,4 @@ GEN=GEN.add_interharmonics(IHARM_MATRIX);
 GEN=GEN.savefile(['signal\' num2str(k,'%2.2f') ' Pst\test_state_3.txt']);
 clear GEN;
 end;
-
-%-------------------------------
-%GEN=GEN.draw;
-%  tic
- 
-%  t=toc
-%figure; 
-% plot(sqrt(2)*abs(fft(GEN.UA)/length(GEN.UA)))
-
-% disp('Loading');
-% [A,B]=mex_swallow_csv('signal\signal.txt');
-% clear B;
 

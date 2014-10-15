@@ -98,16 +98,3 @@ GEN=GEN.add_interharmonics(IHARM_MATRIX);
 GEN=GEN.savefile(['signal\' num2str(k,'%2.2f') ' Un\test_state_3.txt']);
 clear GEN;
 end;
-
-%-------------------------------
-%GEN=GEN.draw;
-%  tic
- 
-%  t=toc
-%figure; 
-% plot(sqrt(2)*abs(fft(GEN.UA)/length(GEN.UA)))
-
-% disp('Loading');
-% [A,B]=mex_swallow_csv('signal\signal.txt');
-% clear B;
-
